@@ -18,7 +18,17 @@ class Credentials:
 
         return first_user
 
-        
+    def __init__(self,account,userName, password):
+        '''
+        A method that defines user credentials to be stored
+        '''    
+        self.account=account
+        self.userName=userName
+        self.password=password
+            
+    
+
+
 
 
 
