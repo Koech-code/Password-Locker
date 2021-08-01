@@ -1,6 +1,7 @@
 import random
 import pyperclip
 import string
+from user import User
 
 class Credentials:
     '''
@@ -10,7 +11,7 @@ class Credentials:
     credentials_list=[]
 
     @classmethod
-    def check_user(self, userName, userPassword):
+    def check_user(cls, userName, userPassword):
         '''
         This is a method that first checks if the user is already in the user_list or not
         '''
@@ -18,7 +19,7 @@ class Credentials:
         first_user=""
         for user in User.user_list:
             if (user.userName==userName and user.userPassword==userPassword):
-                first_user=userName
+                first_user=user.userName
 
         return first_user
 
@@ -70,7 +71,20 @@ class Credentials:
         This is a method that displays all credentials in the credential_list
         '''
         
-        return cls.credential_list
+        return cls.credentials_list
+     
+    @classmethod
+    def credential_exist(cls, account):
+        '''
+        A method that checks if a credential already exists
+        '''
+        for credential in cls.credentials_list:
+            if credential.account==account:
+                return True
+
+        return False
+
+
 
     def systemGeneratedPassword(passwordLength=10):
         '''
