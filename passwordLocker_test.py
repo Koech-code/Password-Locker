@@ -33,7 +33,23 @@ class TestCredentials(unittest.TestCase):
     '''
     Created a sub-class that defines test cases for the Credential class
     '''
+    def setUp(self):
+        '''
+        A method that runs before each credential tes methods run
+        '''
 
+        self.new_credential=Credentials("nixonkipkorir01@gmail.com","Nixon Kipkorir","12345")
+
+    def test_init(self):
+        '''
+        A test case that checks if the new credential objects have been initialized correctly
+        '''    
+        
+        self.assertEqual(self.new_credential.account,"nixonkipkorir01@gmail.com")
+        self.assertEqual(self.new_credential.userName,"Nixon Kipkorir")
+        self.assertEqual(self.new_credential.password,"12345")
+
+        
 if __name__ == '__main__':
     unittest.main()           
 
