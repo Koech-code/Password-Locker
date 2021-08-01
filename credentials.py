@@ -25,7 +25,27 @@ class Credentials:
         self.account=account
         self.userName=userName
         self.password=password
-            
+
+    def save_credential(self):
+        '''
+        A method that will help us save new credential details into the credentials_list
+        '''   
+        Credentials.credentials_list.append(self)
+
+    def delete_credentials(self):
+        '''
+        This is a method that deletes the saved credentials in the credentials_list
+        '''    
+
+        Credentials.credentials_list.remove(self)
+
+
+
+
+
+
+
+
     
 
 
