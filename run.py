@@ -162,7 +162,31 @@ def passwordManager():
                 search_credential=find_credentials(search_account)
                 print(f"Account Name : {search_credential.account}")
                 print('-' * 10)
-                print(f"")
+                print(f"User name: {search_credential.userName} \n password: {search_credential.password}")
+                print("."*10)
+                else:
+                    print("We couldn't find your credentials.")
+                    print("\n")
+        elif short_code=="d":
+            print("Enter the account name of the credential you wish to delete.")
+            print("\n")
+            search_name = input().lower()
+            if find_credential(search_name):
+                search_credential = find_credential(search_name)
+                print("_"*50)
+                search_credential.delete_credentials()
+                print('\n')
+                print(f"Your saved credentials for : {search_credential.account} successfully deleted!!!")
+                print('\n')
+            else:
+                print("That Credential you want to delete does not exist in the credentials_list.")
+            
+         elif short_code == 'ex':
+            print("Thank you for visiting your passwords store manager. Have a great day!")
+            break
+        else:
+            print("Wrong entry.The short code entered doesn't match the ones provided. Try again.")
+
 
 
 
