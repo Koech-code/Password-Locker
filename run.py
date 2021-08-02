@@ -121,8 +121,32 @@ def passwordManager():
         login=login_user(userName,password)
         if login_user == login:
             print(f"{userName} there you are! Welcome to your password locker manager")
+    while True:
+        print("Use these short codes:\n CC - Create a new credential \n DC - Display Credentials \n FC - Find a credential \n GP - Generate A random password \n D - Delete credential \n EX - Exit the application \n")
+        short_code = input().lower().strip()
 
+        if short_code=="cc":
+            print("Create New Credential")
+            print(".."*5)
+            print("Your account name...")
+            account=input().lower()
+            print("Your account user name")
+            userName=input()
+            while True:
+                print(" TP - To type your own pasword if you already have an account:\n GP - To generate random Password")
+                password_Choice = input().lower().strip()
+                if password_Choice == 'tp':
+                    password = input("Enter Your Password\n")
+                    break
+                elif password_Choice == 'gp':
+                    password = generatePassword()
+                    break
+                else:
+                    print("You must either enter your own password or gp to allow the system to create it for you.")
+            save_credentials(create_new_credential(account,userName,password))
+            print(f"The account credentials of {account} account, with {userName} and a password of {password} have been created successfully.")
 
+                 
 
 
 
