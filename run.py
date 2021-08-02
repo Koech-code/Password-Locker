@@ -41,13 +41,13 @@ def save_credentials(credentials):
     '''
     Function that saves the entered user account credentials
     '''
-    credentials.save_credentials
+    credentials.save_credentials()
 
 def display_credential_details():
     '''
     A function that displays all the details in our credentials
     '''
-    return Credentials.display_credentials
+    return Credentials.display_credentials()
 
 def delete_credential(credentials):
     '''
@@ -56,11 +56,11 @@ def delete_credential(credentials):
 
     credentials.delete_credentials
 
-def find_credential(account):
+def find_credentials(account):
     '''
     A function that searches for a saved credential using the account name
     '''
-    return Credentials.find_credential(account)
+    return Credentials.find_credentials(account)
 
 def check_credential(account):
     '''
@@ -152,27 +152,26 @@ def passwordManager():
                 for account in display_credential_details():
                     print(f"Account:{account.account} \n user_name: {userName} \n password: {password}")
                     print("-"*10)
-                
                 else:
                     print("There are no credentials yet.")
         elif short_code=="fc":
             print("Enter the account name of the of the credentials you wish to search")
             search_account=input().lower()
-            if find_credential(search_account):
+            if find_credentials(search_account):
                 search_credential=find_credentials(search_account)
                 print(f"Account Name : {search_credential.account}")
                 print('-' * 10)
                 print(f"User name: {search_credential.userName} \n password: {search_credential.password}")
                 print("."*10)
-                else:
-                    print("We couldn't find your credentials.")
-                    print("\n")
+            else:
+                print("We couldn't find your credentials.")
+                print("\n")
         elif short_code=="d":
             print("Enter the account name of the credential you wish to delete.")
             print("\n")
             search_name = input().lower()
-            if find_credential(search_name):
-                search_credential = find_credential(search_name)
+            if find_credentials(search_name):
+                search_credential = find_credentials(search_name)
                 print("_"*50)
                 search_credential.delete_credentials()
                 print('\n')
@@ -181,17 +180,11 @@ def passwordManager():
             else:
                 print("That Credential you want to delete does not exist in the credentials_list.")
             
-         elif short_code == 'ex':
+        elif short_code == 'ex':
             print("Thank you for visiting your passwords store manager. Have a great day!")
             break
         else:
             print("Wrong entry.The short code entered doesn't match the ones provided. Try again.")
-
-
-
-
-
-                 
 
 
 if __name__ == '__main__':
