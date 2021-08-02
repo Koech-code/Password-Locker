@@ -1,8 +1,9 @@
 
 # My password locker Project
 
-> This is an application where I can store all my accounts and their credentials. 
-
+## Description
+> This is an application where I can store all my accounts and their credentials.
+> This project is a python application that manages login and sign up credentials of a person for various accounts i.e. username and passwords for each account. It also stores the passwords and generates a unique passwords for a user. 
 
 ## Author
 
