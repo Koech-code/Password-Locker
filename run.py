@@ -145,9 +145,29 @@ def passwordManager():
                     print("You must either enter your own password or gp to allow the system to create it for you.")
             save_credentials(create_new_credential(account,userName,password))
             print(f"The account credentials of {account} account, with {userName} and a password of {password} have been created successfully.")
+        elif short_code=="dc":
+            if  display_credential_details():
+                print("Here is your list of account")
+                print("-"*10)
+                for account in display_credential_details():
+                    print(f"Account:{account.account} \n user_name: {userName} \n password: {password}")
+                    print("-"*10)
+                
+                else:
+                    print("There are no credentials yet.")
+        elif short_code=="fc":
+            print("Enter the account name of the of the credentials you wish to search")
+            search_account=input().lower()
+            if find_credential(search_account):
+                search_credential=find_credentials(search_account)
+                print(f"Account Name : {search_credential.account}")
+                print('-' * 10)
+                print(f"")
+
+
+
 
                  
-
 
 
 if __name__ == '__main__':
