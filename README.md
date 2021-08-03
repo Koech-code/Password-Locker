@@ -11,6 +11,14 @@
 
 - GitHub: [@Koech-code](https://github.com/Koech-code/)
 
+## BDD
+- Create a user account,  where one may login  or sign up
+- Allow a user to create credentials for the accounts that he/she have.
+- Enable the user to create a new account credentials, with the account name, username and password.
+- Enable a user to find saved credentials.
+- The user can delete credentials.
+- When done, a user may exit the application.
+
 ## Built With
 
 - Python3.6
